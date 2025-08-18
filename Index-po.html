@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandana Gurrala - Visionary Product Leader</title>
+    <style>
+        /* --- Google Fonts & General Styling --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' );
+
+        :root {
+            --primary-color: #bb86fc;
+            --background-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --header-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* --- Layout & Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        h1, h2, h3 {
+            color: var(--header-color);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--header-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #bb86fc, #6200ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #hero .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4);
+        }
+
+        /* --- Skills Alignment Section --- */
+        #skills {
+            background-color: var(--surface-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Entrepreneurial Ventures (Portfolio) --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-item.full-width {
+            grid-column: 1 / -1; /* Make item span both columns */
+        }
+
+        .portfolio-item-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .portfolio-item img, .slider {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .tags {
+            margin-top: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #333;
+            color: var(--primary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Image Slider for CareerBuild AI */
+        .slider {
+            position: relative;
+        }
+
+        .slider .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slider .slide.active {
+            opacity: 1;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .social-links a {
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            nav ul { display: none; } /* Simple responsive solution */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Chandana Gurrala</div>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#skills">Product Skills</a></li>
+                    <li><a href="#portfolio">Ventures</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <h1>Entrepreneurial Product Leader</h1>
+                <p class="subtitle">
+                    Founder with a Master's in Computer Science, transforming complex challenges into market-leading, AI-driven products. I build, launch, and scale ventures from the ground up.
+                </p>
+                <a href="#portfolio" class="cta-button">View My Ventures</a>
+            </div>
+        </section>
+
+        <!-- Skills Alignment Section -->
+        <section id="skills">
+            <div class="container">
+                <h2>How I Drive Product Success</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Ideation & Strategy</h3>
+                        <p>I identify high-impact opportunities by analyzing market trends, user research, and competitive landscapes to establish a clear product vision and strategy aligned with core business goals.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Data-Driven Decisions</h3>
+                        <p>I leverage quantitative and qualitative data to define product requirements, prioritize features, and make informed decisions, ensuring every step is backed by evidence and focused on user value.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Full-Lifecycle Execution</h3>
+                        <p>As a founder, I have hands-on experience across the entire product lifecycle—from ideation and technical design with engineers to launch, iteration, and scaling in the market.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Cross-Functional Leadership</h3>
+                        <p>I build consensus and establish a shared vision across technical and non-technical teams. My experience includes collaborating with engineers, designers, and stakeholders to ensure seamless execution.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Technical Acumen</h3>
+                        <p>With a background in Computer Science and AI, I effectively communicate with engineers, understand technical constraints, and contribute to architectural decisions to build robust and scalable products.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Adaptability & Ambiguity</h3>
+                        <p>My entrepreneurial journey has trained me to thrive in ambiguous environments. I excel at breaking down complex problems, adapting to change, and finding creative solutions to unexpected challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entrepreneurial Ventures Section -->
+        <section id="portfolio">
+            <div class="container">
+                <h2>My Entrepreneurial Ventures</h2>
+                <div class="portfolio-grid">
+                    <!-- SafyPix Project -->
+                    <div class="portfolio-item">
+                        <img src="https://i.imgur.com/8z2Q1nU.jpeg" alt="SafyPix Anti-Piracy Technology">
+                        <div class="portfolio-item-content">
+                            <h3>SafyPix - AI Anti-Piracy Solution</h3>
+                            <p>As Founder, I led the creation of an AI-powered solution to combat the $97B film piracy market. I drove the product from concept to a deployable system with 99.5% detection accuracy, focusing on a privacy-first architecture.</p>
+                            <div class="tags">
+                                <span class="tag">Product Vision</span>
+                                <span class="tag">AI/ML</span>
+                                <span class="tag">Market Analysis</span>
+                                <span class="tag">Go-to-Market Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CareerBuild AI Project -->
+                    <div class="portfolio-item">
+                        <div class="slider">
+                            <img src="https://i.imgur.com/pA2z2QL.jpeg" alt="CareerBuild AI Platform" class="slide active">
+                            <img src="https://i.imgur.com/oDPn94L.png" alt="Launch Accelerator Attendance" class="slide">
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>CareerBuild AI - Career Development Platform</h3>
+                            <p>As Co-Founder & Product Manager, I guided this AI-driven platform from conceptualization to MVP launch. I implemented Agile methodologies to ensure rapid iteration and on-time delivery, and secured a place in the prestigious Launch Accelerator program.</p>
+                             <div class="tags">
+                                <span class="tag">Product Management</span>
+                                <span class="tag">Agile/Scrum</span>
+                                <span class="tag">MVP Launch</span>
+                                <span class="tag">User-Centric Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- StarSolu.com Project -->
+                    <div class="portfolio-item">
+                        <img src="https://i.imgur.com/k9g4J1N.jpeg" alt="StarSolu AI Meme Chatbot">
+                        <div class="portfolio-item-content">
+                            <h3>StarSolu.com - Visual Meme Chatbot</h3>
+                            <p>As the founder, I pioneered the first intelligent AI meme chatbot. I leveraged sentiment analysis and CNN image classification to create a unique, context-aware conversational experience, integrating robust API functionality for dynamic responses.</p>
+                            <div class="tags">
+                                <span class="tag">User Engagement</span>
+                                <span class="tag">API Integration</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sampada Project -->
+                    <div class="portfolio-item">
+                        <img src="https://i.imgur.com/Y4jW4Jj.jpeg" alt="Sampada AI Investment Assistant">
+                        <div class="portfolio-item-content">
+                            <h3>Sampada - AI Investment Assistant</h3>
+                            <p>I conceived and developed this AI-powered FinTech platform to democratize financial insights. I designed a multi-agent system for unbiased recommendations and created a product analytics dashboard to enhance user transparency.</p>
+                            <div class="tags">
+                                <span class="tag">FinTech</span>
+                                <span class="tag">System Design</span>
+                                <span class="tag">Data Visualization</span>
+                                <span class="tag">B2C Product</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h2>Let's Build Something Great</h2>
+            <p>I'm always excited to connect with passionate people and explore new opportunities.</p>
+            <div class="social-links">
+                <p>
+                    <a href="mailto:chandanagurrala1901@gmail.com">chandanagurrala1901@gmail.com</a> | 
+                    <a href="https://linkedin.com/in/chandana-gurrala-08043b200/" target="_blank">LinkedIn</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function( ) {
+            // Image Slider for CareerBuild AI
+            const slider = document.querySelector('.slider');
+            if (slider) {
+                const slides = slider.querySelectorAll('.slide');
+                let currentSlide = 0;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        if (i === index) {
+                            slide.classList.add('active');
+                        }
+                    });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                // Change slide every 3.5 seconds for a smoother feel
+                setInterval(nextSlide, 3500);
+            }
+        });
+    </script>
+
+</body>
+</html>
